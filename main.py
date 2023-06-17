@@ -104,13 +104,13 @@ def main(page: Page):
     page.add(
         ft.Row(
             topBar,
-            alignment=ft.MainAxisAlignment.CENTER),
+            alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
         ft.Row(
             icons,
-            alignment=ft.MainAxisAlignment.CENTER),
+            ),
         ft.Row(
             winners,
-            alignment=ft.MainAxisAlignment.CENTER),
+            ),
         unAddBtn
     )
 
