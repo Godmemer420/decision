@@ -21,7 +21,7 @@ bet = 1
 
 
 def main(page: Page):
-    page.window_resizable = False
+
 
     def to_main():
         page.views.pop()
@@ -47,7 +47,7 @@ def main(page: Page):
         elif newImgIndex == 0:
             payout /= 1.9
         payout = round(payout, 2)
-        topBar[1] = ft.Text(f"payout: {payout}x", size=page.window_width * page.window_height / 46080)
+        topBar[1] = ft.Text(f"payout: {payout}x", size=20)
         page.go("/chooser")
 
     def route_change(route):
@@ -68,9 +68,9 @@ def main(page: Page):
 
     page.on_route_change = route_change
 
-    topBar = [ft.Text(f"balance: {balance}$", size=page.window_width * page.window_height / 46080),
-              ft.Text(f"payout: {payout}x", size=page.window_width * page.window_height / 46080),
-              ft.Text(f"bet: {bet}$", size=page.window_width * page.window_height / 46080)]
+    topBar = [ft.Text(f"balance: {balance}$", size=20),
+              ft.Text(f"payout: {payout}x", size=20),
+              ft.Text(f"bet: {bet}$", size=20)]
 
     icons = [Container(content=Image(src=imgs[0]), on_click=lambda x: switchColor(x), on_long_press=to_card_chooser) for _ in range(5)]
     winners = [Container(content=Image(src=imgs[0]), ) for _ in range(5)]
@@ -88,14 +88,14 @@ def main(page: Page):
         elif newImgIndex == 0:
             payout /= 1.9
         payout = round(payout, 2)
-        topBar[1] = ft.Text(f"payout: {payout}x", size=page.window_width * page.window_height / 46080)
+        topBar[1] = ft.Text(f"payout: {payout}x", size=20)
 
         page.update()
 
     def removeDollar(event):
         global balance
         balance -= 1
-        topBar[0] = ft.Text(f"balance: {balance}$", size=page.window_width * page.window_height / 46080)
+        topBar[0] = ft.Text(f"balance: {balance}$", size=20)
         page.update()
 
 
