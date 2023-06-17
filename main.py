@@ -47,14 +47,14 @@ def main(page: Page):
         elif newImgIndex == 0:
             payout /= 1.9
         payout = round(payout, 2)
-        topBar[1] = ft.Text(f"payout: {payout}x", size=20)
+        topBar[1] = ft.Text(f"payout: {payout}x", size=20, expand=True)
         page.go("/chooser")
 
     def route_change(route):
         if page.route == "/chooser":
             cardImgs = []
             for src in cardSrc:
-                    cardImgs.append(Container(content=Image(src=src), on_click=save_card))
+                    cardImgs.append(Container(content=Image(src=src), expand=True, on_click=save_card))
 
             page.views.append(
                 ft.View(
@@ -68,12 +68,12 @@ def main(page: Page):
 
     page.on_route_change = route_change
 
-    topBar = [ft.Text(f"balance: {balance}$", size=20),
-              ft.Text(f"payout: {payout}x", size=20),
-              ft.Text(f"bet: {bet}$", size=20)]
+    topBar = [ft.Text(f"balance: {balance}$", size=20, expand=True),
+              ft.Text(f"payout: {payout}x", size=20, expand=True),
+              ft.Text(f"bet: {bet}$", size=20, expand=True)]
 
-    icons = [Container(content=Image(src=imgs[0]), on_click=lambda x: switchColor(x), on_long_press=to_card_chooser) for _ in range(5)]
-    winners = [Container(content=Image(src=imgs[0]), ) for _ in range(5)]
+    icons = [Container(content=Image(src=imgs[0]), height=270, expand=True, on_click=lambda x: switchColor(x), on_long_press=to_card_chooser) for _ in range(5)]
+    winners = [Container(content=Image(src=imgs[0]), height=270, expand=True) for _ in range(5)]
 
     def switchColor(event):
         global payout
@@ -88,14 +88,14 @@ def main(page: Page):
         elif newImgIndex == 0:
             payout /= 1.9
         payout = round(payout, 2)
-        topBar[1] = ft.Text(f"payout: {payout}x", size=20)
+        topBar[1] = ft.Text(f"payout: {payout}x", size=20, expand=True)
 
         page.update()
 
     def removeDollar(event):
         global balance
         balance -= 1
-        topBar[0] = ft.Text(f"balance: {balance}$", size=20)
+        topBar[0] = ft.Text(f"balance: {balance}$", size=20, expand=True)
         page.update()
 
 
