@@ -54,7 +54,7 @@ def main(page: Page):
         if page.route == "/chooser":
             cardImgs = []
             for src in cardSrc:
-                    cardImgs.append(Container(content=Image(src=src), expand=True, on_click=save_card))
+                    cardImgs.append(Container(content=Image(src=src), on_click=save_card))
 
             page.views.append(
                 ft.View(
@@ -72,8 +72,8 @@ def main(page: Page):
               ft.Text(f"payout: {payout}x", size=20, expand=True),
               ft.Text(f"bet: {bet}$", size=20, expand=True)]
 
-    icons = [Container(content=Image(src=imgs[0]), height=270, expand=True, on_click=lambda x: switchColor(x), on_long_press=to_card_chooser) for _ in range(5)]
-    winners = [Container(content=Image(src=imgs[0]), height=270, expand=True) for _ in range(5)]
+    icons = [Container(content=Image(src=imgs[0]), expand=True, on_click=lambda x: switchColor(x), on_long_press=to_card_chooser) for _ in range(5)]
+    winners = [Container(content=Image(src=imgs[0]), expand=True) for _ in range(5)]
 
     def switchColor(event):
         global payout
@@ -104,13 +104,13 @@ def main(page: Page):
     page.add(
         ft.Row(
             topBar,
-            alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
+            alignment=ft.MainAxisAlignment.CENTER),
         ft.Row(
             icons,
-            alignment=ft.MainAxisAlignment.SPACE_EVENLY),
+            alignment=ft.MainAxisAlignment.CENTER),
         ft.Row(
             winners,
-            alignment=ft.MainAxisAlignment.SPACE_EVENLY),
+            alignment=ft.MainAxisAlignment.CENTER),
         unAddBtn
     )
 
