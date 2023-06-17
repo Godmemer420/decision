@@ -72,8 +72,8 @@ def main(page: Page):
               ft.Text(f"payout: {payout}x", size=20, expand=True),
               ft.Text(f"bet: {bet}$", size=20, expand=True)]
 
-    icons = [Container(content=Image(src=imgs[0]), expand=True, on_click=lambda x: switchColor(x), on_long_press=to_card_chooser) for _ in range(5)]
-    winners = [Container(content=Image(src=imgs[0]), expand=True) for _ in range(5)]
+    icons = [Container(content=Image(src=imgs[0]), height=200, expand=True, on_click=lambda x: switchColor(x), on_long_press=to_card_chooser) for _ in range(5)]
+    winners = [Container(content=Image(src=imgs[0]), height=200, expand=True) for _ in range(5)]
 
     def switchColor(event):
         global payout
