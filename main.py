@@ -35,6 +35,7 @@ def main(page: Page):
     def getBal():
         PARAMS = {'user': 'admin'}
         r = requests.get(url=server + '/user', params=PARAMS)
+        r.close()
         data = r.json()
         return round(data[0], 2)
 
@@ -217,6 +218,7 @@ def main(page: Page):
         PARAMS = {'user': user, 'pass': password, 'wager': float(bet), 'bet': betSeq}
         r = requests.get(url=server + '/play', params=PARAMS)
         data = r.json()
+        r.close()
         balance = round(int(data[2]), 2)
         topBar[0] = Text(f"balance: {balance}$", size=20, expand=True)
         winnerSequence = data[0]
