@@ -26,7 +26,7 @@ balance = 0
 bet = 0
 lastCon = None
 sequence = ['00', '00', '00', '00', '00']
-server = 'http://0037-141-147-29-255.ngrok-free.app/'
+server = 'http://4479-141-147-29-255.ngrok-free.app'
 
 
 def main(page: Page):
